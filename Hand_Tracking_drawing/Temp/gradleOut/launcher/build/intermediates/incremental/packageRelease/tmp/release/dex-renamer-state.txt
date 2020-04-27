@@ -1,4 +1,4 @@
-#Fri Apr 24 14:46:45 EDT 2020
-base.0=/Users/amandakomsky/Desktop/MR_experiment/MR_exp/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
+#Mon Apr 27 13:26:01 EDT 2020
+base.0=/Users/amandakomsky/Desktop/Virtual-Reality/Hand_Tracking_drawing/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
 path.0=classes.dex
 renamed.0=classes.dex

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Painting : MonoBehaviour
 {
-    public GameObject Ink;
-    public GameObject Marker;
+    public GameObject ink;
+    public GameObject tip;
     // public float InkSize = 0.1f;
     // public Controller controller;
     // Start is called before the first frame update
@@ -14,18 +14,36 @@ public class Painting : MonoBehaviour
 
     }
     void Update() {
+      isWriting();
+    }
 
-      if (OVRInput.Get(OVRInput.Button.One)) {
-        Vector3 bk = Marker.transform.TransformDirection(Vector3.back);
-        RaycastHit hit;
-        if (Physics.Raycast(Marker.transform.position, bk, .1f)){
-          Marker.SetActive(false);
-        }
+    void isWriting() {
+      if (OVRInput.Get(OVRInput.Button.One)){
+          RaycastHit hit;
+          if (Physics.Raycast(tip.transform.position, -tip.transform.up, out hit, Mathf.Infinity)){
+            if(hit.collider.tag == "Board"){
+              Instantiate(ink, hit.point-Vector3.forward*0.01f, hit.transform.rotation);
+            }
+          }
       }
-
       if (OVRInput.Get(OVRInput.Button.Two)){
-        Marker.SetActive(true);
+        tip.SetActive(true);
       }
+      if (!OVRInput.Get(OVRInput.Button.Two)){
+        tip.SetActive(true);
+      }
+
+      // if (OVRInput.Get(OVRInput.Button.One)) {
+      //   Vector3 bk = Marker.transform.TransformDirection(Vector3.back);
+      //   RaycastHit hit;
+      //   if (Physics.Raycast(Marker.transform.position, bk, .1f)){
+      //     Marker.SetActive(false);
+      //   }
+      // }
+      //
+      // if (OVRInput.Get(OVRInput.Button.Two)){
+      //   Marker.SetActive(true);
+      // }
     }
 
 

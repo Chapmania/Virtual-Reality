@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // using OVRHand;
@@ -68,11 +68,23 @@ public class grab_object : MonoBehaviour
     }
 
     void colorChange() {
-      l_isMiddleFingerPinching = l_hand.GetFingerIsPinching(OVRHand.HandFinger.Middle);
-      if (l_isMiddleFingerPinching) {
-        inkRenderer.material.SetColor("_Color", Color.red);
+      // l_isMiddleFingerPinching = l_hand.GetFingerIsPinching(OVRHand.HandFinger.Middle);
+      // if (l_isMiddleFingerPinching) {
+      //   inkRenderer.material.SetColor("_Color", Color.red);
+      // }
+      // l_point = l_finger.Bones[20].Transform.position;
+      RaycastHit hit;
+      Renderer currRend;
+      if (Physics.Raycast(l_finger.Bones[20].Transform.position, l_finger.Bones[20].Transform.forward, out hit, Mathf.Infinity)){
+        // GameObject rend = hit.GetComponent<GameObject>();
+        currRend = hit.collider.gameObject.GetComponent<Renderer>();
+        currRend.material.SetColor("_Color", Color.green);
+        // if(hit.collider.tag == "Board"){
+        //   Instantiate(ink, hit.point-Vector3.forward*0.01f, hit.transform.rotation);
+        // }
       }
     }
+
 
     // if (r_isIndexFingerPinching) {
       // item.transform.rotation = r_hand.transform.rotation;

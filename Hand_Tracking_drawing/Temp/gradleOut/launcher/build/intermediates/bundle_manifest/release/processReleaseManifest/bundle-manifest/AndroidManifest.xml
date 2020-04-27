@@ -45,7 +45,7 @@
         android:version="1" />
     <uses-feature
         android:name="oculus.software.handtracking"
-        android:required="true" />
+        android:required="false" />
 
     <uses-permission android:name="oculus.permission.handtracking" />
 
@@ -89,7 +89,7 @@
             android:value="portrait|landscape" />
         <meta-data
             android:name="unity.build-id"
-            android:value="9143708d-0896-4c2c-9013-6d0b68becc44" />
+            android:value="62c942b7-bbf1-4993-8522-76bb001c418a" />
         <meta-data
             android:name="com.samsung.android.vr.application.mode"
             android:value="vr_only" />
